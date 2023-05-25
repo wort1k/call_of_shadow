@@ -6,7 +6,7 @@ Player::Player()
     hieght = 64;
     width = 64;
     radius = hieght / 2;
-    position_ = QPoint(100, 500);
+    position_ = QPoint(50, 50);
     HP = 100;
     damage = 20;
 }

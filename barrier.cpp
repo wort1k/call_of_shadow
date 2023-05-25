@@ -4,7 +4,7 @@
 
 Barrier::Barrier(QPoint pos){
     position = pos;
-    vertices_ = {pos, QPoint(pos.x() + 100 ,pos.y()), QPoint(pos.x()+10,pos.y()+100), QPoint(pos.x(),pos.y()+100)};
+    vertices_ = {pos, QPoint(pos.x() + 64,pos.y()), QPoint(pos.x()+64,pos.y()+64), QPoint(pos.x(),pos.y()+64)};
 }
 
 std::optional<QPointF> Barrier::IntersectRay(const Ray& ray){

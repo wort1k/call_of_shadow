@@ -8,17 +8,19 @@
 #include "QKeyEvent"
 #include "barrier.h"
 #include "enemy.h"
-
+#include "QLabel"
 class Controller
 {
 public:
     Controller();
+    ~Controller();
+    QLabel *hpBar;
     QGraphicsScene* scene_;
     QGraphicsView* view_;
     Player* player;
     std::vector<Barrier> barriers;
     std::vector<Enemy*> enemies;
-    std::vector<std::vector<int>> field;
+    void fill();
     void addBarrier(Barrier);
     void paint();
     bool contact();

@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "QKeyEvent"
 #include "controller.h"
+#include "QTimerEvent"
 #include "QTimer"
 
 namespace Ui {
@@ -14,15 +15,17 @@ class Menu : public QMainWindow
 {
     Q_OBJECT
 public slots:
-    void TimerEvent();
+   // void timerEvent(QTimerEvent*);
+    void tick();
 public:
     explicit Menu(QWidget *parent = nullptr);
     ~Menu();
     void keyPressEvent(QKeyEvent *event);
 private:
+    QTimer* timer;
     Ui::Menu *ui;
     Controller* controller;
-    QTimer* timer;
+    int timerClock = 0;
 protected:
    // void keyPressEvent(QKeyEvent *event);
 };

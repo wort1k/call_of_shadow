@@ -32,8 +32,8 @@ SOURCES += \
     ../raycaster/polygon.cpp \
     barrier.cpp \
     enemy.cpp \
-    sword.cpp \
-    ray.cpp
+    ray.cpp \
+    gopnik.cpp
 
 HEADERS += \
         menu.h \
@@ -42,9 +42,9 @@ HEADERS += \
     ../raycaster/polygon.h \
     barrier.h \
     enemy.h \
-    sword.h \
     ../raycaster/ray.h \
-    ray.h
+    ray.h \
+    gopnik.h
 
 FORMS += \
         menu.ui

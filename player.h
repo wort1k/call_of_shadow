@@ -14,7 +14,6 @@ private:
     int width;
     int damage;
     int HP;
-    QRectF boundingRect() const { return QRectF(position_, QPointF(position_.x()+20, position_.y() - 20)); }
 
 public:
     int radius;

@@ -1,22 +1,42 @@
 #include "menu.h"
 #include "ui_menu.h"
 #include <QTextStream>
+#include "QMessageBox"
 
 Menu::Menu(QWidget *parent) :
     QMainWindow(parent),
     controller(new Controller()),
-        timer(new QTimer(this)),
+    timer(new QTimer(this)),
     ui(new Ui::Menu)
 {
+    connect(timer, SIGNAL(timeout()), this, SLOT(tick()));
+    timer->start(1000 / 60);
     ui->setupUi(this);
     setFixedSize(960, 540);
     ui->gridLayout->addWidget(controller->view_);
-    timer->setInterval(1000);
 }
 
-void Menu::TimerEvent(){
-    controller->enemies[0]->setPosition(controller->enemies[0]->findWay(*controller->player, controller->barriers));
+void Menu::tick(){
+    controller->enemies[0]->movement(controller->enemies[0]->findWay(*controller->player, controller->barriers), controller->barriers, *controller->player);
+    if(controller->player->GetHP() <= 4){
+        QMessageBox msgBox;
+        msgBox.setText("нож в печень никто не вечен");
+        msgBox.exec();
+       timer->stop();
+
+    }
+    controller->paint();
 }
+//void Menu::timerEvent(QTimerEvent* event) {
+//    controller->enemies[0]->movement(controller->enemies[0]->findWay(*controller->player, controller->barriers), controller->barriers, *controller->player);
+//    if(controller->player->GetHP() <= 4){
+//        QMessageBox msgBox;
+//        msgBox.setText("Удар в печень никто не вечен");
+//        msgBox.exec();
+//       // QObject::killTimer();
+//    }
+//    controller->paint();
+//}
 
 Menu::~Menu()
 {
@@ -47,6 +67,6 @@ void Menu::keyPressEvent(QKeyEvent *event){
     if(controller->contact()){
         controller->player->setPosition(prevPos);
     }
-    controller->enemies[0]->setPosition(controller->enemies[0]->findWay(*controller->player, controller->barriers));
-    controller->paint();
+    //controller->enemies[0]->movement(controller->enemies[0]->findWay(*controller->player, controller->barriers), controller->barriers);
+    //controller->paint();
 }
