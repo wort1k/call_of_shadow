@@ -27,16 +27,7 @@ void Menu::tick(){
     }
     controller->paint();
 }
-//void Menu::timerEvent(QTimerEvent* event) {
-//    controller->enemies[0]->movement(controller->enemies[0]->findWay(*controller->player, controller->barriers), controller->barriers, *controller->player);
-//    if(controller->player->GetHP() <= 4){
-//        QMessageBox msgBox;
-//        msgBox.setText("Удар в печень никто не вечен");
-//        msgBox.exec();
-//       // QObject::killTimer();
-//    }
-//    controller->paint();
-//}
+
 
 Menu::~Menu()
 {
@@ -68,5 +59,5 @@ void Menu::keyPressEvent(QKeyEvent *event){
         controller->player->setPosition(prevPos);
     }
     //controller->enemies[0]->movement(controller->enemies[0]->findWay(*controller->player, controller->barriers), controller->barriers);
-    //controller->paint();
+    controller->paint();
 }

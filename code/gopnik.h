@@ -2,11 +2,11 @@
 #define GOPNIK_H
 #include "enemy.h"
 
-class Sword : public Enemy
+class Gopnik : public Enemy
 {
 public:
-    Sword();
-    Sword(int,int);
+    Gopnik();
+    Gopnik(int,int);
     void paint(QGraphicsScene*) override;
     void movement(QPoint, std::vector<Barrier>, Player&) override;
     void route(std::vector<Barrier>) override;

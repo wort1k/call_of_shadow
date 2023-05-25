@@ -12,14 +12,14 @@ Controller::Controller() :
     player(new Player()),
     hpBar(new QLabel())
 {
-    hpBar->setText(QString::number(player->GetHP()));
-    hpBar->setGeometry(0,0,50,30);
+    //hpBar->setText(QString::number(player->GetHP()));
+    //hpBar->setGeometry(0,0,50,30);
     view_->setScene(scene_);
     view_->setFixedSize(960, 540);
     std::vector<QPointF>points = {QPoint(0,0), QPoint(960,0), QPoint(960,540), QPoint(0,540)};
     barriers.push_back(Barrier(points));
     fill();
-    Sword *sw = new Sword();
+    Gopnik *sw = new Gopnik();
     enemies.push_back(sw);
     paint();
     scene_->addWidget(hpBar);
@@ -31,7 +31,7 @@ Controller::~Controller(){
     delete hpBar;
     delete scene_;
     delete view_;
-    enemies.clear();
+    //enemies.clear();
 
 }
 void Controller::addBarrier(Barrier barrier){
@@ -48,7 +48,7 @@ void Controller::paint(){
         barrier.paint(scene_);
     }
     for(auto enemy : enemies){
-      enemy->paint(scene_);
+        enemy->paint(scene_);
     }
     scene_->addRect(QRect(3, 3, player->GetHP() * 2, 30), pen, brush);
 }

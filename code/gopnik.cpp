@@ -1,7 +1,7 @@
 #include "gopnik.h"
 #include "QPen"
 
-Sword::Sword(){
+Gopnik::Gopnik(){
     position = QPoint(960 - width,540 - hieght);
     vertices_ = {QPoint(position.x() - width / 2, position.y() - hieght / 2),
                  QPoint(position.x() + width / 2, position.y() - hieght / 2),
@@ -9,7 +9,7 @@ Sword::Sword(){
                  QPoint(position.x() - width / 2, position.y() + hieght / 2)
                 };
 }
-Sword::Sword(int x, int y)
+Gopnik::Gopnik(int x, int y)
 {
     position = QPoint(x,y);
     vertices_ = {QPoint(position.x() - width / 2, position.y() - hieght / 2),
@@ -19,7 +19,7 @@ Sword::Sword(int x, int y)
                 };
 }
 
-void Sword::paint(QGraphicsScene *scene){
+void Gopnik::paint(QGraphicsScene *scene){
     QPen pen(Qt::green);
     pen.setWidth(3);
     scene->addLine(QLine(QPoint(position.x() - width / 2, position.y() - hieght / 2), QPoint(position.x() + width / 2, position.y() - hieght / 2)), pen);
@@ -28,7 +28,7 @@ void Sword::paint(QGraphicsScene *scene){
     scene->addLine(QLine(QPoint(position.x() - width / 2, position.y() + hieght / 2), QPoint(position.x() - width / 2, position.y() - hieght / 2)), pen);
 }
 
-QPoint Sword::findWay(Player& player,std::vector<Barrier>& barriers){
+QPoint Gopnik::findWay(Player& player,std::vector<Barrier>& barriers){
     double distance = sqrt(pow(position.x() - player.getPosition().x(), 2) + pow(position.y() - player.getPosition().y(), 2));
     if( distance <= 64 * sqrt(2) + 1){
 
@@ -80,7 +80,7 @@ QPoint Sword::findWay(Player& player,std::vector<Barrier>& barriers){
 }
 
 
-void Sword::movement(QPoint goTo, std::vector<Barrier> barriers, Player& player){
+void Gopnik::movement(QPoint goTo, std::vector<Barrier> barriers, Player& player){
     if(goTo == position){
         if(sqrt(pow(position.x() - player.getPosition().x(), 2) + pow(position.y() - player.getPosition().y(), 2)) <= 64 * sqrt(2) + 1){
             if(player.GetHP() < damage){
@@ -122,7 +122,7 @@ void Sword::movement(QPoint goTo, std::vector<Barrier> barriers, Player& player)
     }
 }
 
-void Sword::route(std::vector<Barrier> barriers){
+void Gopnik::route(std::vector<Barrier> barriers){
     QPoint prevPos = position;
     if(facing == "left"){
         position.setX(position.x() - speed);
