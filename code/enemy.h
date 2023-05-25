@@ -2,6 +2,7 @@
 #define ENEMY_H
 
 #include <vector>
+#include <cmath>
 #include "QPoint"
 #include "QGraphicsScene"
 #include "barrier.h"
@@ -11,12 +12,16 @@ class Enemy
 {
 protected:
     QPoint position;
+    int radius_ = 32;
     std::vector<QPoint> vertices_;
     int hp = 50;
     int damage = 5;
-    int speed = 5;
+    int speed = 2;
     bool isSearh = false;
-    bool onRoute = true;
+    int searchingTime = 0;
+    QPoint lastSeen;
+    std::string facing = "left";
+    int change = 0;
 public:
     int hieght = 64;
     int width = 64;
@@ -27,9 +32,11 @@ public:
     void setPosition(QPoint newPos){ position = newPos; }
     int getHP() { return hp; }
     int getDamage() {return damage; }
-    void paint(QGraphicsScene*);
-    void movement();
-    QPoint findWay(Player&, std::vector<Barrier>&);
+    virtual void paint(QGraphicsScene*){}
+    virtual void movement(QPoint, std::vector<Barrier>, Player&){}
+    virtual void route(std::vector<Barrier>){}
+    bool contact(std::vector<Barrier>);
+    virtual QPoint findWay(Player&, std::vector<Barrier>&){}
 
 };
 

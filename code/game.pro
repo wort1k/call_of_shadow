@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2023-05-10T20:43:16
+# Project created by QtCreator 2023-05-25T21:26:56
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = game_3
+TARGET = game
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -29,22 +29,21 @@ SOURCES += \
         menu.cpp \
     controller.cpp \
     player.cpp \
-    ../raycaster/polygon.cpp \
+    player.cpp \
     barrier.cpp \
+    ray.cpp \
     enemy.cpp \
-    sword.cpp \
-    ray.cpp
+    gopnik.cpp
 
 HEADERS += \
         menu.h \
     controller.h \
     player.h \
-    ../raycaster/polygon.h \
+    player.h \
     barrier.h \
+    ray.h \
     enemy.h \
-    sword.h \
-    ../raycaster/ray.h \
-    ray.h
+    gopnik.h
 
 FORMS += \
         menu.ui
