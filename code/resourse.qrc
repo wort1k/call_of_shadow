@@ -1,0 +1,25 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>Samurai1.png</file>
+        <file>gopnikLeft.png</file>
+        <file>sprites/Kust64.png</file>
+        <file>sprites/Gopn.png</file>
+        <file>sprites/SamurL1.png</file>
+        <file>sprites/SamurL2.png</file>
+        <file>sprites/SamurL3.png</file>
+        <file>sprites/SamurL4.png</file>
+        <file>sprites/SamurL5.png</file>
+        <file>sprites/SamurL6.png</file>
+        <file>sprites/SamurL7.png</file>
+        <file>sprites/SamurL8.png</file>
+        <file>sprites/SamurR1.png</file>
+        <file>sprites/SamurR2.png</file>
+        <file>sprites/SamurR3.png</file>
+        <file>sprites/SamurR4.png</file>
+        <file>sprites/SamurR5.png</file>
+        <file>sprites/SamurR6.png</file>
+        <file>sprites/SamurR7.png</file>
+        <file>sprites/SamurR8.png</file>
+        <file>sprites/trava.png</file>
+    </qresource>
+</RCC>
